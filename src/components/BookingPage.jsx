@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Navbar from "./Navbar";
 
 const Booking = () => {
   const [roomType, setRoomType] = useState("single");
@@ -21,11 +22,24 @@ const Booking = () => {
 
   return (
     <div>
+      <Navbar />
       <div className="container">
-        <div className="row">
+        <div className="row pt-4">
           <div className="col-md-6">
-            <img src="hostel-image.jpg" alt="Hostel" className="img-fluid" />
+            <img
+              src="https://via.placeholder.com/150"
+              alt="Hostel"
+              className="img-fluid w-100 h-75"
+            />
             <p>Caption for Hostel Image</p>
+            <div className="pagination">
+              <a href="#">&laquo; Previous</a>
+              <a href="#">1</a>
+              <a href="#">2</a>
+              <a href="#">3</a>
+              <a href="#">4</a>
+              <a href="#">Next &raquo;</a>
+            </div>
           </div>
           <div className="col-md-6">
             <h1>Hostel Name</h1>
@@ -51,19 +65,6 @@ const Booking = () => {
             <p>Room Price: ${roomPrice} per night</p>
 
             <button className="btn btn-primary">Book Now</button>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-md-12">
-            <div className="pagination">
-              <a href="#">&laquo; Previous</a>
-              <a href="#">1</a>
-              <a href="#">2</a>
-              <a href="#">3</a>
-              <a href="#">4</a>
-              <a href="#">Next &raquo;</a>
-            </div>
           </div>
         </div>
       </div>
