@@ -18,13 +18,16 @@ const Navbar = () => {
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNavDropdown"
+        >
           <ul class="navbar-nav">
             <li class="nav-item">
               <a
                 class="nav-link text-light active"
                 aria-current="page"
-                href="#"
+                href="/home"
               >
                 HOME
               </a>
@@ -39,33 +42,15 @@ const Navbar = () => {
                 UPLOAD
               </a>
             </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link text-light dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                ACCOUNT
+            <li class="nav-item">
+              <a class="nav-link text-light" href="/login">
+                LOGIN
               </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="#">
-                    SIGN IN
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">
-                    SIGN UP
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">
-                    LOG OUT
-                  </a>
-                </li>
-              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="/signup">
+                SIGNUP
+              </a>
             </li>
           </ul>
         </div>
