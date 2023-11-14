@@ -1,5 +1,6 @@
 //template for home page
 import React from "react";
+import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 
 function HomePage() {
@@ -99,15 +100,23 @@ function HomePage() {
           {hostels.map((hostel) => (
             <div key={hostel.id} className="col-md-3 mb-4">
               <div className="card">
-                <img
-                  src={hostel.imageUrl}
-                  className="card-img-top"
-                  alt={hostel.name}
-                />
+                <Link to={`/booking/${hostel.id}`}>
+                  <img
+                    src={hostel.imageUrl}
+                    className="card-img-top"
+                    alt={hostel.name}
+                  />
+                </Link>
                 <div className="card-body">
                   <h5 className="card-title">{hostel.name}</h5>
                   <p className="card-text">{hostel.location}</p>
                   <p className="card-text">{hostel.description}</p>
+                  <Link
+                    to={`/booking/${hostel.id}`}
+                    className="btn btn-primary"
+                  >
+                    Book Now
+                  </Link>
                 </div>
               </div>
             </div>

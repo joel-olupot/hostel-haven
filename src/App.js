@@ -5,20 +5,24 @@ import HomePage from "./components/HomePage";
 import SignUp from "./components/SignUp";
 import Booking from "./components/BookingPage";
 import About from "./components/About";
+import { AuthProvider } from "./components/AuthContext";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<About />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/booking" element={<Booking />} />
-        </Routes>
-      </div>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <div className="App">
+          <Routes>
+            <Route path="/" element={<About />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/signup" element={<SignUp />} />
+            <PrivateRoute path="/booking" element={<Booking />} />
+          </Routes>
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }
 
