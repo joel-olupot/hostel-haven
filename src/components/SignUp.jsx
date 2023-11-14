@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useAuth } from "./AuthContext";
+
 import Navbar from "./Navbar";
 
 function SignUp() {
+  const { dispatch } = useAuth();
   const [formData, setFormData] = useState({
     name: "",
     gender: "male", // Default value
@@ -22,6 +25,8 @@ function SignUp() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission here
+    // On successful signup, dispatch action to update user state
+    dispatch({ type: "LOGIN", payload: [] /* user data and token */ });
   };
 
   return (

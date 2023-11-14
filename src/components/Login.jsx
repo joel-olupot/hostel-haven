@@ -1,12 +1,16 @@
 import React, { useState } from "react";
+import { useAuth } from "./AuthContext";
 import Navbar from "./Navbar";
 
 const Login = () => {
+  const { dispatch } = useAuth();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
     // Add your login logic here
+    // On successful login, dispatch action to update user state
+    dispatch({ type: "LOGIN", payload: [] /* user data and token */ });
     console.log("Logging in with username:", username);
   };
 
