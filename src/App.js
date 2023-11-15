@@ -5,6 +5,7 @@ import HomePage from "./components/HomePage";
 import SignUp from "./components/SignUp";
 import Booking from "./components/BookingPage";
 import About from "./components/About";
+import Confirmation from "./components/Confirmation";
 import { AuthProvider } from "./components/AuthContext";
 import PrivateRoute from "./components/PrivateRoute";
 
@@ -18,7 +19,11 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<HomePage />} />
             <Route path="/signup" element={<SignUp />} />
-            <PrivateRoute path="/booking" element={<Booking />} />
+            <Route path="/booking/:hostelId" element={<Booking />} />
+            <Route
+              path="/confirmation/:hostelId/:roomType"
+              element={<Confirmation />}
+            />
           </Routes>
         </div>
       </Router>

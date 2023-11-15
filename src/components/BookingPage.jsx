@@ -1,7 +1,21 @@
 import React, { useState } from "react";
+import { Link, useParams, useLocation } from "react-router-dom";
+
 import Navbar from "./Navbar";
 
 const Booking = () => {
+  const { hostelId } = useParams();
+  const { search } = useLocation();
+  const queryParams = new URLSearchParams(search);
+
+  // Retrieve hostel data from URL parameters
+  const hostelData = {
+    name: queryParams.get("name"),
+    location: queryParams.get("location"),
+    description: queryParams.get("description"),
+    // Add more fields as needed
+  };
+
   const [roomType, setRoomType] = useState("single");
   const [roomPrice, setRoomPrice] = useState(100);
 
@@ -18,6 +32,7 @@ const Booking = () => {
     }
     setRoomType(selectedType);
     setRoomPrice(price);
+    console.log("handled");
   };
 
   return (
@@ -42,8 +57,8 @@ const Booking = () => {
             </div>
           </div>
           <div className="col-md-6">
-            <h1>Hostel Name</h1>
-            <p>Location: Hostel Location</p>
+            <h1>{hostelData.name}</h1>
+            <p>Location: {hostelData.location}</p>
             <p>Custodian Contact: Custodian's Contact Information</p>
             <p>Amenities: List of Amenities</p>
             <p>Ratings: 4.5 (You can use star ratings)</p>
@@ -63,8 +78,9 @@ const Booking = () => {
               </select>
             </div>
             <p>Room Price: ${roomPrice} per night</p>
-
-            <button className="btn btn-primary">Book Now</button>
+            <Link to={`/confirmation/${hostelId}/${roomType}`}>
+              <button className="btn btn-primary">Book Now</button>
+            </Link>
           </div>
         </div>
       </div>

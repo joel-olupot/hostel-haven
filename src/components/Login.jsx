@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, link } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import Navbar from "./Navbar";
 
@@ -79,9 +80,11 @@ const Login = () => {
                         <p>Already have account?</p>
                       </div>
                       <div class="col-3">
-                        <button type="button" className="btn btn-primary">
-                          Sign Up
-                        </button>
+                        <Link to="/signup">
+                          <button type="button" className="btn btn-primary">
+                            Sign Up
+                          </button>
+                        </Link>
                       </div>
                     </div>
                   </div>

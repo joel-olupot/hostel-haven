@@ -100,7 +100,13 @@ function HomePage() {
           {hostels.map((hostel) => (
             <div key={hostel.id} className="col-md-3 mb-4">
               <div className="card">
-                <Link to={`/booking/${hostel.id}`}>
+                <Link
+                  to={`/booking/${hostel.id}?name=${encodeURIComponent(
+                    hostel.name
+                  )}&location=${encodeURIComponent(
+                    hostel.location
+                  )}&description=${encodeURIComponent(hostel.description)}`}
+                >
                   <img
                     src={hostel.imageUrl}
                     className="card-img-top"
@@ -112,7 +118,11 @@ function HomePage() {
                   <p className="card-text">{hostel.location}</p>
                   <p className="card-text">{hostel.description}</p>
                   <Link
-                    to={`/booking/${hostel.id}`}
+                    to={`/booking/${hostel.id}?name=${encodeURIComponent(
+                      hostel.name
+                    )}&location=${encodeURIComponent(
+                      hostel.location
+                    )}&description=${encodeURIComponent(hostel.description)}`}
                     className="btn btn-primary"
                   >
                     Book Now
